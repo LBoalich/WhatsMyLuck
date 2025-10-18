@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">What\'s My Luck</string>
+    <string name="close">Close</string>
+    <string name="question">Focus on the yes or no question you want to ask the magic 8 ball</string>
+    <string name="reveal">Reveal Answer</string>
+    <string name="seek">Was this the answer you sought?</string>
+    <string name="help_title">Help</string>
+    <string name="about">About</string>
+    <string name="about_description">The What\'s My Luck application uses a Magic 8 Ball to find the user\'s luck for entertainment purposes.</string>
+    <string name="preferences_guide">Preferences Guide</string>
+    <string name="reset">Reset</string>
+    <string name="reset_description">Resets the users luck.  This cannot be undone!</string>
+    <string name="questions_total">Questions Total</string>
+    <string name="questions_total_description">Set how many questions to ask before resetting luck.  Changing the total questions to a lower number will automatically reset the users luck; this cannot be undone!</string>
+    <string name="track">Track Questions</string>
+    <string-array name="luck_array">
+        <item>You have rotten luck!</item>
+        <item>You earned your degree at the School of Hard Knocks.</item>
+        <item>Fortune has been kind, but not overly generous.</item>
+        <item>The luck of the Irish!</item>
+        <item>Your luck is yet to be decided.</item>
+    </string-array>
+    <string-array name="answers_array">
+        <item>It is certain</item>
+        <item>It is decidedly so</item>
+        <item>Without a doubt</item>
+        <item>Yes, definitely</item>
+        <item>You may rely on it</item>
+        <item>Ah I see it, yes</item>
+        <item>Most Likely</item>
+        <item>Outlook good</item>
+        <item>Yes</item>
+        <item>Signs point to yes</item>
+        <item>Don\'t count on it</item>
+        <item>My reply is no</item>
+        <item>My sources say no</item>
+        <item>Outlook not so good</item>
+        <item>Very doubtful</item>
+        <item>Reply hazy try again</item>
+        <item>Ask again later</item>
+        <item>Better not tell you now</item>
+        <item>Cannot predict now</item>
+        <item>Concentrate and ask again</item>
+    </string-array>
+</resources>
