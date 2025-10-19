@@ -2,6 +2,8 @@ package com.example.whatsmyluck.ui
 
 import android.app.Activity
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -9,9 +11,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.BasicAlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -51,16 +55,20 @@ fun PreferencesScreen(
         Card(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
+                .padding(16.dp)
+                .verticalScroll(rememberScrollState()),
             shape = RoundedCornerShape(16.dp),
         ) {
             Row(
                 modifier = Modifier
+                    .padding(8.dp)
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
                     text = stringResource(R.string.reset),
                     modifier = Modifier
-                        .wrapContentSize(Alignment.CenterStart),
+                        .padding(8.dp),
                     textAlign = TextAlign.Start,
                 )
                 Switch(
@@ -70,11 +78,15 @@ fun PreferencesScreen(
             }
             Row(
                 modifier = Modifier
+                    .padding(8.dp)
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
                     text = "Track Questions",
                     modifier = Modifier
-                        .wrapContentSize(Alignment.CenterStart),
+                        .wrapContentSize(Alignment.CenterStart)
+                        .padding(8.dp),
                     textAlign = TextAlign.Start,
                 )
                 Switch(
@@ -83,14 +95,20 @@ fun PreferencesScreen(
                 )
             }
             if (luckUiState.isTrackingQuestions) {
-                Row() {
+                Row(
+                    modifier = Modifier
+                        .padding(bottom = 16.dp)
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
                     val focusManager = LocalFocusManager.current
 
                     Text(
                         text = stringResource(R.string.questions_total),
                         modifier = Modifier
-                            .wrapContentSize(Alignment.Center),
-                        textAlign = TextAlign.Center,
+                            .wrapContentSize(Alignment.Center)
+                            .padding(8.dp),
+                        textAlign = TextAlign.Start,
                     )
                     OutlinedTextField(
                         value = luckUiState.displayNumQuestionsToAsk,
@@ -101,15 +119,24 @@ fun PreferencesScreen(
                         ),
                         keyboardActions = KeyboardActions(
                             onDone = { focusManager.clearFocus() }
-                        )
+                        ),
+                        modifier = Modifier
+                            .padding(8.dp)
                     )
                 }
             }
-            Button(
-                onClick = onDismissRequest,
+            Box(
                 modifier = Modifier
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
             ) {
-                Text( text = stringResource(R.string.close) )
+                Button(
+                    onClick = onDismissRequest,
+                    modifier = Modifier
+                        .padding(bottom = 32.dp, top = 16.dp)
+                ) {
+                    Text(text = stringResource(R.string.close))
+                }
             }
         }
     }
